@@ -317,6 +317,46 @@ p {
     font-size: 0.95rem;
 }
 
+/* Certifications Section */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.cert-item {
+    background: var(--bg-light);
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 4px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.cert-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cert-item h4 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.cert-issuer {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.cert-date {
+    color: var(--light-text);
+    font-size: 0.85rem;
+    margin: 5px 0;
+}
+
 /* Projects Section */
 .projects-grid {
     display: grid;
