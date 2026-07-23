@@ -1,0 +1,42 @@
+{
+  "name": "viktorolivares.github.io",
+  "version": "1.0.0",
+  "description": "Mi portafolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viktorolivares/viktorolivares.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viktorolivares/viktorolivares.github.io/issues"
+  },
+  "homepage": "https://github.com/viktorolivares/viktorolivares.github.io#readme",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "gh-pages": "^6.3.0",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.1.5"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "boxicons": "^2.1.4",
+    "framer-motion": "^12.42.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.1",
+    "three": "^0.185.1"
+  }
+}
