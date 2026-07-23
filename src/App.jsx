@@ -1,48 +1,57 @@
 import { useEffect, useState } from "react";
-import AboutSection from "./components/AboutSection";
-import AdditionalSkillsSection from "./components/AdditionalSkillsSection";
-import CertificationsSection from "./components/CertificationsSection";
-import EducationSection from "./components/EducationSection";
-import ExperienceSection from "./components/ExperienceSection";
-import Footer from "./components/Footer";
-import ProjectsSection from "./components/ProjectsSection";
-import Sidebar from "./components/Sidebar";
-import { cvDownload } from "./data/cvData";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import CvV1Page from "./pages/cv/CvV1Page";
+import CvV2Page from "./pages/cv/CvV2Page";
+import HomePage from "./pages/HomePage";
 
-const App = () => {
-  const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
-
-  useEffect(() => {
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  }, [isDark]);
+const RouteLoader = ({ visible }) => {
+  if (!visible) {
+    return null;
+  }
 
   return (
-    <div className={isDark ? "dark" : ""}>
-      <div className="min-h-screen bg-[radial-gradient(circle_at_top,#f8fbff_0%,#edf3f8_42%,#e5ebf2_100%)] px-4 py-6 font-[Poppins] text-slate-800 antialiased transition-colors duration-300 dark:bg-[radial-gradient(circle_at_top,#1e293b_0%,#111827_42%,#0b1120_100%)] dark:text-slate-200 sm:px-6 lg:px-8 lg:py-8">
-        <div className="mx-auto grid max-w-7xl overflow-hidden rounded-4xl border border-white/70 bg-white/90 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur transition-colors duration-300 dark:border-slate-700/80 dark:bg-slate-900/90 md:grid-cols-[320px_1fr]">
-          <Sidebar
-            isDark={isDark}
-            onToggleTheme={() => setIsDark((current) => !current)}
-            cvDownload={cvDownload}
-          />
-
-          <main className="bg-white/80 px-5 py-6 transition-colors duration-300 dark:bg-slate-900/70 sm:px-8 sm:py-8 lg:px-12 lg:py-12">
-            <div className="space-y-10 lg:space-y-12">
-              <AboutSection />
-              <ExperienceSection />
-              <EducationSection />
-              <CertificationsSection />
-              <ProjectsSection />
-              <AdditionalSkillsSection />
-            </div>
-          </main>
+    <div
+      className="route-loader-overlay"
+      role="status"
+      aria-live="polite"
+      aria-label="Cambiando vista"
+    >
+      <div className="route-loader-card">
+        <div className="route-loader-dots" aria-hidden="true">
+          <span />
+          <span />
+          <span />
         </div>
-
-        <Footer />
       </div>
     </div>
+  );
+};
+
+const App = () => {
+  const location = useLocation();
+  const [isRouteLoading, setIsRouteLoading] = useState(true);
+
+  useEffect(() => {
+    setIsRouteLoading(true);
+    const timer = window.setTimeout(() => {
+      setIsRouteLoading(false);
+    }, 520);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [location.pathname]);
+
+  return (
+    <>
+      <RouteLoader visible={isRouteLoading} />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/cv/v1" element={<CvV1Page />} />
+        <Route path="/cv/v2" element={<CvV2Page />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </>
   );
 };
 

@@ -1,3 +1,5 @@
+import certimasVoPdf from "../assets/certificates/certimas-vo.pdf";
+
 export const profile = {
   name: "Victor Olivares Yamunaque",
   title: "Coordinador Senior de Optimización Operativa",
@@ -24,7 +26,7 @@ export const technicalSkills = [
 
 export const socialLinks = [
   {
-    title: "GitHub",
+    title: "Repositorio GitHub",
     icon: "bxl-github",
     href: "https://github.com/viktorolivares",
   },
@@ -34,14 +36,14 @@ export const socialLinks = [
     href: "https://www.linkedin.com/in/viktorolivares/",
   },
   {
-    title: "Portfolio",
+    title: "Portafolio",
     icon: "bx-globe",
     href: "https://viktorolivares.github.io",
   },
 ];
 
 export const cvDownload = {
-  href: "/certificates/Victor-Olivares-CV.pdf",
+  href: certimasVoPdf,
   fileName: "Victor-Olivares-CV.pdf",
 };
 
@@ -126,12 +128,26 @@ export const education = [
 
 export const certifications = [
   {
+    title:
+      "Triple certificación Azure Fundamentals + Administrator + Solutions Architect Expert",
+    issuer: "CerTI+ Educación Online",
+    issued: "Jul 2025",
+    skills: [
+      "Microsoft Azure",
+      "Azure Fundamentals",
+      "Azure Administrator",
+      "Solutions Architect",
+    ],
+    certificateUrl: certimasVoPdf,
+  },
+  {
     title: "Microsoft Certified: Azure Fundamentals",
     issuer: "Microsoft",
     issued: "Jan 2025",
     credentialId: "wCcH3-48EN",
     skills: ["Microsoft Azure", "Cloud Computing"],
-    certificateUrl: "/certificates/azure-fundamentals.pdf",
+    certificateUrl:
+      "https://www.certiport.com/portal/Pages/PrintTranscriptInfo.aspx?action=Cert&id=414&cvid=+JYQcgP0K2Ij49aBU0gTJQ==",
   },
   {
     title: "Foundational C# with Microsoft",
@@ -139,7 +155,8 @@ export const certifications = [
     issued: "Feb 2025",
     credentialId: "viktorolivares-fcswm",
     skills: ["C#", ".NET"],
-    certificateUrl: "/certificates/foundational-csharp.pdf",
+    certificateUrl:
+      "https://www.freecodecamp.org/certification/viktorolivares/foundational-c-sharp-with-microsoft",
   },
   {
     title: "Scrum Foundation Professional Certification (SFPC™)",
@@ -147,19 +164,24 @@ export const certifications = [
     issued: "Aug 2024",
     expires: "Aug 2027",
     skills: ["Scrum", "Agile"],
-    certificateUrl: "/certificates/scrum-sfpc.pdf",
+    certificateUrl:
+      "https://www.credly.com/badges/0a8a2d08-d641-4cf5-96cb-adfd9f37e2d6/linked_in_profile",
   },
   {
     title: "Front End Development Libraries",
     issuer: "freeCodeCamp",
     issued: "Mar 2024",
     skills: ["React", "Bootstrap", "jQuery"],
+    certificateUrl:
+      "https://www.freecodecamp.org/certification/viktorolivares/front-end-development-libraries",
   },
   {
     title: "Responsive Web Design",
     issuer: "freeCodeCamp",
     issued: "Mar 2024",
     skills: ["HTML5", "CSS3", "Responsive Design"],
+    certificateUrl:
+      "https://www.freecodecamp.org/certification/viktorolivares/responsive-web-design",
   },
   {
     title: "Microsoft Excel Expert (Office 2019)",
@@ -167,85 +189,63 @@ export const certifications = [
     issued: "Jul 2022",
     credentialId: "wYWJs-2FNd",
     skills: ["Microsoft Excel"],
-  },
-  {
-    title: "Desarrollo de Aplicaciones con PHP 7.0, Laravel y PostgreSQL",
-    issuer: "CETI Chiclayo",
-    issued: "Sep 2021",
-    skills: ["PHP", "Laravel", "PostgreSQL", "HTML"],
-  },
-  {
-    title:
-      "Especialista en el Desarrollo de Software de Facturación Electrónica con PHP",
-    issuer: "CETI Chiclayo",
-    issued: "Aug 2021",
-    skills: ["PHP", "Facturación Electrónica", "CSS"],
-  },
-  {
-    title: "Python for Data Science",
-    issuer: "SDC Learning",
-    issued: "Jan 2021",
-    credentialId: "PY14-2020-025",
-    skills: ["Python", "Data Science"],
-  },
-  {
-    title: "Introducción al Desarrollo Web II | HTML y CSS",
-    issuer: "Google Actívate",
-    issued: "Jun 2022",
-    credentialId: "6R9FMHPSE",
-    skills: ["HTML5", "CSS3", "Frontend Development"],
-  },
-  {
-    title: "Introducción al Desarrollo Web I - HTML",
-    issuer: "Google Actívate",
-    issued: "Jun 2022",
-    credentialId: "SGSD8N4B6",
-    skills: ["HTML5"],
+    certificateUrl:
+      "https://www.certiport.com/portal/Pages/PrintTranscriptInfo.aspx?action=Cert&id=417&cvid=xnwOWgX/EYRy36Bo005Y1g==",
   },
 ];
 
 export const projects = [
   {
-    title: "Fraud Prevention Platform",
+    title: "Plataforma de Prevención de Fraude",
     description:
       "Plataforma para prevención de fraude mediante reglas de negocio, automatización e integración con múltiples servicios financieros.",
     tech: ["Python", "PostgreSQL", "Docker"],
+    image: "/works/fraude-prevencion.png",
+    imageAlt: "Diagrama del flujo de prevención de fraude",
   },
   {
-    title: "CCTV Monitoring Platform",
+    title: "Plataforma de Monitoreo CCTV",
     description:
       "Sistema para monitorear más de 400 DVRs con alertas en tiempo real, métricas y automatización.",
     tech: ["Python", "REST API", "PostgreSQL"],
+    image: "/works/monitoreo-cctv.png",
+    imageAlt: "Diagrama del sistema de monitoreo CCTV",
   },
   {
-    title: "Financial Collectors Backend",
+    title: "Backend de Recaudadores Financieros",
     description:
       "Backend para conciliaciones y liquidaciones financieras integrando múltiples recaudadores y pasarelas de pago.",
     tech: ["Python", "NestJS", "PostgreSQL"],
+    image: "/works/backend-recaudadores.png",
+    imageAlt: "Diagrama de conciliación y liquidación financiera",
   },
   {
-    title: "Electronic Invoicing System",
+    title: "Sistema de Facturación Electrónica",
     description:
       "Sistema de facturación electrónica integrado con SUNAT para empresas.",
     tech: ["Laravel", "PHP", "PostgreSQL"],
+    image: "/works/facturacion-electronica.png",
+    imageAlt: "Diagrama del proceso de facturación electrónica",
   },
   {
-    title: "API DNI / RUC",
+    title: "Captura de Notificaciones (YAPE - QR BBVA)",
     description:
-      "Servicio REST para consultas de identidad y RUC en tiempo real.",
-    tech: ["PHP", "REST API", "MySQL"],
+      "Aplicación móvil Android que monitorea en tiempo real las notificaciones entrantes de Yape y QR BBVA para extraer los datos de cada transacción y enviarlos automáticamente al sistemas de validación",
+    tech: ["Kotlin", "Vue.js", "Laravel"],
+    image: "/works/captura-notificaciones-yape-qr.png",
+    imageAlt: "Diagrama de captura y validación de notificaciones de pago",
   },
 ];
 
 export const additionalSkills = [
-  "Software Architecture",
-  "Clean Architecture",
-  "Microservices",
-  "REST APIs",
+  "Arquitectura de Software",
+  "Arquitectura Limpia",
+  "Microservicios",
+  "APIs REST",
   "Docker",
   "Git",
   "GitHub",
-  "GitLab CI/CD",
+  "GitLab Integración Continua/Entrega Continua",
   "AWS",
   "Microsoft Azure",
   "PostgreSQL",
@@ -253,10 +253,10 @@ export const additionalSkills = [
   "SQL Server",
   "Redis",
   "Kubernetes",
-  "Artificial Intelligence",
-  "Machine Learning",
-  "Data Science",
+  "Inteligencia Artificial",
+  "Aprendizaje Automático",
+  "Ciencia de Datos",
   "DevOps",
   "Scrum",
-  "Technical Leadership",
+  "Liderazgo Técnico",
 ];
