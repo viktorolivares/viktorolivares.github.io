@@ -6,7 +6,6 @@ import {
   additionalSkills,
   contacts,
   certifications,
-  cvDownload,
   education,
   experience,
   profile,
@@ -40,17 +39,8 @@ const CvV1Page = () => {
           to="/"
           className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-cyan-400/35 bg-cyan-500/15 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-cyan-100 uppercase transition-colors hover:bg-cyan-500/25"
         >
-          <i className="bx bx-home text-sm" />
           <span>Inicio</span>
         </Link>
-        <a
-          href={cvDownload.href}
-          download={cvDownload.fileName}
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-cyan-600 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-white uppercase hover:bg-cyan-500"
-        >
-          <i className="bx bx-download text-sm" />
-          <span>Descargar PDF</span>
-        </a>
       </div>
 
       <main className="mx-auto max-w-7xl space-y-6 rounded-4xl border border-slate-700/80 bg-slate-900/85 p-6 shadow-[0_25px_70px_rgba(2,6,23,0.5)] sm:p-8 lg:p-10">
