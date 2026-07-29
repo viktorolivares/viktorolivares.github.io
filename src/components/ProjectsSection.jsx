@@ -37,13 +37,13 @@ const ProjectsSection = ({ className = "" }) => {
     <section className={`space-y-6 ${className}`}>
       <SectionHeading icon="bx-code-alt" title="Proyectos Destacados" />
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-1.5 sm:gap-2">
         {techOptions.map((tech) => (
           <button
             type="button"
             key={tech}
             onClick={() => setSelectedTech(tech)}
-            className={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors duration-300 ${
+            className={`rounded-full border px-2.5 py-1 text-[11px] sm:text-xs font-semibold transition-colors duration-300 ${
               selectedTech === tech
                 ? "border-sky-300 bg-sky-50 text-sky-700 dark:border-sky-500/60 dark:bg-sky-500/15 dark:text-sky-300"
                 : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700/60"
@@ -71,7 +71,7 @@ const ProjectsSection = ({ className = "" }) => {
 
           return (
             <InteractiveCard
-              className="group rounded-[28px] border border-slate-200/80 bg-white p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(15,23,42,0.09)] dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-[0_20px_60px_rgba(2,6,23,0.35)]"
+              className="group rounded-2xl border border-slate-200/80 bg-white p-4 shadow-[0_18px_50px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(15,23,42,0.09)] dark:border-slate-700/70 dark:bg-slate-800/80 dark:shadow-[0_20px_60px_rgba(2,6,23,0.35)] sm:rounded-[28px] sm:p-6"
               key={projectId}
             >
               <div

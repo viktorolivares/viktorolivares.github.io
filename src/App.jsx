@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router";
 import CvV1Page from "./pages/cv/CvV1Page";
 import CvV2Page from "./pages/cv/CvV2Page";
 import HomePage from "./pages/HomePage";

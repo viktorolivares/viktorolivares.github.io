@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import Footer from "../../components/Footer";
 import {
   aboutText,
@@ -32,41 +32,40 @@ const CvV1Page = () => {
   const featuredProjects = projects.slice(0, 4);
   const topSkills = technicalSkills.slice(0, 8);
 
-  return (
-    <div className="dark min-h-screen bg-slate-950 px-4 py-8 font-[JetBrains_Mono] text-slate-200 sm:px-6 lg:px-8 lg:py-10">
+  return (    <div className="dark min-h-screen bg-slate-950 px-3 py-4 font-[JetBrains_Mono] text-slate-200 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
       <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
         <Link
           to="/"
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-cyan-400/35 bg-cyan-500/15 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-cyan-100 uppercase transition-colors hover:bg-cyan-500/25"
+          className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-cyan-400/35 bg-cyan-500/15 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-cyan-100 uppercase transition-colors hover:bg-cyan-500/25 shadow-lg backdrop-blur-md"
         >
           <span>Inicio</span>
         </Link>
       </div>
 
-      <main className="mx-auto max-w-7xl space-y-6 rounded-4xl border border-slate-700/80 bg-slate-900/85 p-6 shadow-[0_25px_70px_rgba(2,6,23,0.5)] sm:p-8 lg:p-10">
+      <main className="mx-auto max-w-7xl space-y-6 rounded-2xl border border-slate-700/80 bg-slate-900/85 p-4 shadow-[0_25px_70px_rgba(2,6,23,0.5)] sm:rounded-4xl sm:p-8 lg:p-10">
         <header className="space-y-5 border-b border-slate-700 pb-6">
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              <p className="text-xs font-semibold tracking-[0.2em] text-cyan-300 uppercase">
+              <p className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-cyan-300 uppercase">
                 CV Versión 1
               </p>
-              <h1 className="mt-2 text-3xl font-bold text-slate-100 sm:text-4xl">
+              <h1 className="mt-1.5 text-2xl font-bold text-slate-100 sm:text-4xl">
                 {profile.name}
               </h1>
-              <p className="mt-1 text-base text-slate-300">{profile.title}</p>
+              <p className="mt-1 text-sm sm:text-base text-slate-300">{profile.title}</p>
             </div>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-4">
             {impactMetrics.map((metric) => (
               <article
                 key={metric.label}
-                className="rounded-2xl border border-slate-700 bg-slate-800/70 px-4 py-3"
+                className="rounded-2xl border border-slate-700 bg-slate-800/70 px-3 py-2.5 sm:px-4 sm:py-3"
               >
-                <p className="text-[10px] tracking-[0.14em] text-slate-400 uppercase">
+                <p className="text-[9px] sm:text-[10px] tracking-[0.14em] text-slate-400 uppercase">
                   {metric.label}
                 </p>
-                <p className="mt-1 text-2xl font-bold text-cyan-200">
+                <p className="mt-0.5 sm:mt-1 text-xl sm:text-2xl font-bold text-cyan-200">
                   {metric.value}
                 </p>
               </article>
@@ -74,15 +73,15 @@ const CvV1Page = () => {
           </div>
         </header>
 
-        <section className="grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
-          <article className="rounded-2xl border border-slate-700 bg-slate-800/65 p-5">
-            <h2 className="text-sm font-semibold tracking-[0.14em] text-cyan-200 uppercase">
+        <section className="grid gap-6 lg:grid-cols-[1.25fr_0.7fr]">
+          <article className="rounded-2xl border border-slate-700 bg-slate-800/65 p-4 sm:p-5">
+            <h2 className="text-xs sm:text-sm font-semibold tracking-[0.14em] text-cyan-200 uppercase">
               Perfil Profesional
             </h2>
-            <p className="mt-3 leading-8 text-slate-200">{aboutText}</p>
+            <p className="mt-3 leading-7 sm:leading-8 text-sm sm:text-base text-slate-200">{aboutText}</p>
           </article>
 
-          <article className="space-y-3 rounded-2xl border border-slate-700 bg-slate-800/65 p-5">
+          <article className="space-y-3 rounded-2xl border border-slate-700 bg-slate-800/65 p-4 sm:p-5">
             <h2 className="text-sm font-semibold tracking-[0.14em] text-cyan-200 uppercase">
               Contacto
             </h2>

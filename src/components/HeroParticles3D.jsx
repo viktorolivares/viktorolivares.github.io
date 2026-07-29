@@ -60,7 +60,7 @@ const HeroParticles3D = () => {
 
   return (
     <div
-      className="relative h-52 overflow-hidden rounded-2xl border border-slate-200/75 bg-slate-950/90 dark:border-slate-700/70"
+      className="relative h-36 sm:h-52 overflow-hidden rounded-2xl border border-slate-200/75 bg-slate-950/90 dark:border-slate-700/70"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
         const nx = ((event.clientX - rect.left) / rect.width - 0.5) * 2;

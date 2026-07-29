@@ -8,10 +8,10 @@ import {
 
 const Sidebar = () => {
   return (
-    <aside className="bg-[linear-gradient(180deg,#0f172a_0%,#162136_100%)] px-6 py-8 text-white sm:px-8 md:min-h-full md:px-7 lg:px-8 lg:py-10">
-      <div className="border-b border-white/10 pb-8 text-center">
-        <div className="mb-5 flex justify-center">
-          <div className="h-28 w-28 overflow-hidden rounded-[28px] bg-white/5 shadow-[0_16px_40px_rgba(0,0,0,0.22)] ring-1 ring-white/10 transition-transform duration-300 hover:scale-[1.04] sm:h-32 sm:w-32">
+    <aside className="bg-[linear-gradient(180deg,#0f172a_0%,#162136_100%)] px-4 py-6 text-white sm:px-8 sm:py-8 md:min-h-full md:px-7 lg:px-8 lg:py-10">
+      <div className="border-b border-white/10 pb-6 text-center sm:pb-8">
+        <div className="mb-4 sm:mb-5 flex justify-center">
+          <div className="h-24 w-24 overflow-hidden rounded-[24px] bg-white/5 shadow-[0_16px_40px_rgba(0,0,0,0.22)] ring-1 ring-white/10 transition-transform duration-300 hover:scale-[1.04] sm:h-32 sm:w-32 sm:rounded-[28px]">
             <img
               src={profileImage}
               alt={profile.name}
@@ -19,29 +19,29 @@ const Sidebar = () => {
             />
           </div>
         </div>
-        <h1 className="mb-2 text-[1.75rem] leading-tight font-semibold tracking-[-0.03em] text-white sm:text-[1.95rem]">
+        <h1 className="mb-2 text-[1.5rem] leading-tight font-semibold tracking-[-0.03em] text-white sm:text-[1.95rem]">
           {profile.name}
         </h1>
-        <p className="mx-auto max-w-[18rem] text-sm leading-6 text-slate-200">
+        <p className="mx-auto max-w-[18rem] text-xs sm:text-sm leading-5 sm:leading-6 text-slate-200">
           {profile.title}
         </p>
       </div>
 
-      <div className="border-b border-white/10 py-8">
-        <h3 className="mb-5 text-xs font-semibold tracking-[0.28em] text-slate-300 uppercase">
+      <div className="border-b border-white/10 py-6 sm:py-8">
+        <h3 className="mb-4 sm:mb-5 text-xs font-semibold tracking-[0.28em] text-slate-300 uppercase">
           Contacto
         </h3>
         {contacts.map((contact) => (
           <div
-            className="mb-4 flex items-center gap-3.5 text-sm text-slate-100"
+            className="mb-3.5 sm:mb-4 flex items-center gap-3 text-xs sm:text-sm text-slate-100"
             key={contact.text}
           >
-            <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/5">
+            <span className="inline-flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl bg-white/5">
               <i
-                className={`bx ${contact.icon} block text-[1.2rem] leading-none text-sky-400`}
+                className={`bx ${contact.icon} block text-[1.1rem] sm:text-[1.2rem] leading-none text-sky-400`}
               ></i>
             </span>
-            <span className="min-w-0 wrap-break-word leading-6">
+            <span className="min-w-0 break-words leading-5 sm:leading-6">
               {contact.text}
             </span>
           </div>

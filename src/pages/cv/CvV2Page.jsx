@@ -1,6 +1,6 @@
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import AboutSection from "../../components/AboutSection";
 import AdditionalSkillsSection from "../../components/AdditionalSkillsSection";
 import CertificationsSection from "../../components/CertificationsSection";
@@ -215,11 +215,11 @@ const CvV2Page = () => {
         style={{ scaleX: progressScaleX }}
       />
 
-      <div className="fixed left-4 top-4 z-50">
+      <div className="fixed left-3 top-3 z-50 sm:left-4 sm:top-4">
         <button
           type="button"
           onClick={() => setSoundEnabled((current) => !current)}
-          className="rounded-xl border border-slate-200/80 bg-white/85 px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] text-slate-700 uppercase shadow-[0_8px_24px_rgba(15,23,42,0.14)] backdrop-blur transition-colors duration-300 hover:bg-white dark:border-cyan-500/40 dark:bg-slate-900/80 dark:text-cyan-100 dark:hover:bg-slate-900"
+          className="rounded-xl border border-slate-200/80 bg-white/85 px-2.5 py-1.5 text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] text-slate-700 uppercase shadow-[0_8px_24px_rgba(15,23,42,0.14)] backdrop-blur transition-colors duration-300 hover:bg-white dark:border-cyan-500/40 dark:bg-slate-900/80 dark:text-cyan-100 dark:hover:bg-slate-900"
           aria-pressed={soundEnabled}
           aria-label={soundEnabled ? "Desactivar sonido" : "Activar sonido"}
         >
@@ -231,7 +231,7 @@ const CvV2Page = () => {
         </button>
       </div>
 
-      <div className="pointer-events-none fixed left-4 top-16 z-50 flex w-[min(360px,88vw)] flex-col gap-2">
+      <div className="pointer-events-none fixed left-3 top-14 sm:left-4 sm:top-16 z-50 flex w-[min(340px,86vw)] flex-col gap-2">
         {achievementQueue.map((entry) => (
           <motion.div
             key={entry.id}
@@ -249,20 +249,20 @@ const CvV2Page = () => {
         ))}
       </div>
 
-      <div className="min-h-screen bg-slate-950 px-4 py-6 font-[JetBrains_Mono] text-slate-200 antialiased transition-colors duration-300 sm:px-6 lg:px-8 lg:py-8">
+      <div className="min-h-screen bg-slate-950 px-2.5 py-4 font-[JetBrains_Mono] text-slate-200 antialiased transition-colors duration-300 sm:px-6 sm:py-8 lg:px-8">
         <div className="technical-grid"></div>
 
         <div className="fixed bottom-4 right-4 z-50">
           <Link
             to="/"
-            className="rounded-xl border border-cyan-400/35 bg-cyan-500/15 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-cyan-100 uppercase transition-colors hover:bg-cyan-500/25"
+            className="rounded-xl border border-cyan-400/35 bg-cyan-500/15 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-cyan-100 uppercase transition-colors hover:bg-cyan-500/25 shadow-lg backdrop-blur-md"
           >
             Inicio
           </Link>
         </div>
 
         <div
-          className="cv-shell mx-auto grid max-w-368 overflow-visible rounded-4xl border border-white/70 bg-white/90 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur transition-colors duration-300 dark:border-slate-700/80 dark:bg-slate-900/90 md:grid-cols-[300px_1fr] xl:grid-cols-[320px_1fr]"
+          className="cv-shell mx-auto grid max-w-368 overflow-visible rounded-2xl border border-white/70 bg-white/90 shadow-[0_30px_80px_rgba(15,23,42,0.12)] backdrop-blur transition-colors duration-300 dark:border-slate-700/80 dark:bg-slate-900/90 sm:rounded-4xl md:grid-cols-[300px_1fr] xl:grid-cols-[320px_1fr]"
           style={{
             "--accent-primary": palette.primary,
             "--accent-secondary": palette.secondary,
@@ -270,7 +270,7 @@ const CvV2Page = () => {
         >
           <Sidebar />
 
-          <main className="bg-white/80 px-5 py-6 transition-colors duration-300 dark:bg-slate-900/70 sm:px-8 sm:py-8 lg:px-12 lg:py-12 xl:pr-20">
+          <main className="bg-white/80 px-3.5 py-5 transition-colors duration-300 dark:bg-slate-900/70 sm:px-8 sm:py-8 lg:px-12 lg:py-12 xl:pr-20">
             <div className="space-y-10 lg:space-y-12">
               {sections.map(({ id, icon, stack, label }, index) => {
                 const Component = sectionComponents[id];
