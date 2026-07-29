@@ -15,8 +15,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="shortcut icon" href="/assets/img/VO.ico" type="image/x-icon" />
-  <script type="module" crossorigin src="/assets/index-OCs-fGI0.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CvP0UvXs.css">
+  <!-- Single Page Apps para GitHub Pages (Restauración de URL limpia) -->
+  <script type="text/javascript">
+    (function(l) {
+      if (l.search[1] === 'p') {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&');
+        }).filter(function(s) {
+          return s.slice(0, 2) === 'p=';
+        })[0];
+        if (decoded) {
+          var path = decoded.slice(2);
+          var query = l.search.slice(1).split('&').filter(function(s) {
+            return s.slice(0, 2) === 'q=';
+          })[0];
+          var search = query ? '?' + decodeURIComponent(query.slice(2)) : '';
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + '/' + path + search + l.hash
+          );
+        }
+      }
+    }(window.location));
+  </script>
+  <script type="module" crossorigin src="/assets/index-Bsj3VG-l.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-v27aM8DT.css">
 </head>
 
 <body>
