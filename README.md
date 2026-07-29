@@ -40,3 +40,6 @@ npm run preview
 - src/index.css (Tailwind 4)
 - src/components/ (UI separada por secciones)
 - src/data/cvData.js (contenido del CV)
+
+
+## Test
