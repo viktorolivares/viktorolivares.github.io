@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Link } from "react-router";
 import Footer from "../../components/Footer";
+import profileImage from "../../assets/img/profile.jpg";
 import {
   aboutText,
   additionalSkills,
@@ -44,15 +45,24 @@ const CvV1Page = () => {
 
       <main className="mx-auto max-w-7xl space-y-6 rounded-2xl border border-slate-700/80 bg-slate-900/85 p-4 shadow-[0_25px_70px_rgba(2,6,23,0.5)] sm:rounded-4xl sm:p-8 lg:p-10">
         <header className="space-y-5 border-b border-slate-700 pb-6">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <div>
-              <p className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-cyan-300 uppercase">
-                CV Versión 1
+          <div className="flex flex-row items-center gap-4 sm:gap-6">
+            <div className="shrink-0">
+              <div className="h-16 w-16 overflow-hidden rounded-[20px] bg-slate-800 ring-1 ring-slate-700/60 sm:h-24 sm:w-24 sm:rounded-[28px]">
+                <img
+                  src={profileImage}
+                  alt={profile.name}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="min-w-0">
+              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] text-cyan-300 uppercase">
+                Currículum Vitae
               </p>
-              <h1 className="mt-1.5 text-2xl font-bold text-slate-100 sm:text-4xl">
+              <h1 className="mt-1.5 text-xl font-bold text-slate-100 sm:text-4xl">
                 {profile.name}
               </h1>
-              <p className="mt-1 text-sm sm:text-base text-slate-300">{profile.title}</p>
+              <p className="mt-1 text-xs sm:text-base text-slate-300">{profile.title}</p>
             </div>
           </div>
 

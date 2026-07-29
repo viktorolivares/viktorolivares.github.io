@@ -113,17 +113,10 @@ const HomePage = () => {
                 <div className="mt-6 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center md:justify-start gap-3">
                   <Link
                     to="/cv/v1"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800/90 px-4 py-2.5 text-xs font-semibold tracking-[0.1em] text-slate-200 uppercase transition-all hover:bg-slate-700 hover:border-slate-600 hover:text-white"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-sky-500/40 bg-sky-950/40 px-5 py-2.5 text-xs font-semibold tracking-[0.1em] text-sky-200 uppercase transition-all hover:bg-sky-900/60 hover:border-sky-400/60 shadow-[0_8px_24px_rgba(14,165,233,0.15)]"
                   >
-                    <i className="bx bx-file-blank text-base" />
-                    <span>CV Formato Documento (v1)</span>
-                  </Link>
-                  <Link
-                    to="/cv/v2"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-sky-500/40 bg-sky-950/40 px-4 py-2.5 text-xs font-semibold tracking-[0.1em] text-sky-200 uppercase transition-all hover:bg-sky-900/60 hover:border-sky-400/60"
-                  >
-                    <i className="bx bx-slider-alt text-base" />
-                    <span>CV Interactivo (v2)</span>
+                    <i className="bx bx-file text-base" />
+                    <span>Ver Currículum Vitae</span>
                   </Link>
 
                   <div className="h-6 w-px bg-slate-800 mx-1 hidden sm:block" />
