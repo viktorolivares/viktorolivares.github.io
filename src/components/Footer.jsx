@@ -2,10 +2,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="px-4 pb-6 pt-6 text-center sm:px-6 lg:px-8">
-      <p className="text-sm text-slate-500 dark:text-slate-300">
-        &copy; {currentYear} Victor Olivares | Curriculum Vitae
-      </p>
+    <footer className="mt-16 border-t border-zinc-800/80 pt-8 pb-12 text-center text-xs text-zinc-500 font-mono">
+      <div className="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span>Victor Olivares Yamunaque &mdash; {currentYear}</span>
+        <span>Chiclayo, Perú</span>
+      </div>
     </footer>
   );
 };

@@ -1,8 +1,6 @@
-import certimasVoPdf from "../assets/certificates/certimas-vo.pdf";
-
 export const profile = {
   name: "Victor Olivares Yamunaque",
-  title: "Coordinador Senior de Optimización Operativa",
+  title: "Líder de Tecnología y Coordinador de Optimización Operativa",
 };
 
 export const contacts = [
@@ -11,44 +9,57 @@ export const contacts = [
   { icon: "bx-map", text: "Chiclayo, Perú" },
 ];
 
+export const executiveKpis = [
+  { value: "10+ Años", label: "Trayectoria en TI & Operaciones" },
+  { value: "Misión Crítica", label: "Sistemas Financieros & Antifraude" },
+  { value: "Liderazgo", label: "Gestión de Equipos & Arquitectura" },
+  { value: "Maestría en IA", label: "Ciencia de Datos & Optimización" },
+];
+
 export const technicalSkills = [
-  { name: "Python", level: 96 },
-  { name: "Node.js / NestJS", level: 95 },
-  { name: "TypeScript", level: 94 },
+  { name: "Liderazgo Técnico & Gestión de Proyectos", level: 98 },
+  { name: "Arquitectura de Software & Microservicios", level: 96 },
+  { name: "Prevención de Fraude & Gestión de Riesgos", level: 95 },
+  { name: "Python / IA & Automatización", level: 95 },
+  { name: "Node.js / NestJS / TypeScript", level: 94 },
+  { name: "PostgreSQL & Bases de Datos de Alto Volumen", level: 94 },
   { name: "Laravel / PHP", level: 92 },
-  { name: "PostgreSQL", level: 93 },
-  { name: "React", level: 90 },
-  { name: "Next.js", level: 90 },
-  { name: "Vue.js", level: 88 },
-  { name: "Docker", level: 90 },
-  { name: "Git", level: 92 },
+  { name: "Cloud & DevOps (Azure, Docker, CI/CD)", level: 90 },
+  { name: "Conciliación Financiera & Pasarelas de Pago", level: 95 },
+  { name: "Gobierno de Datos & Metodologías Ágiles (Scrum)", level: 93 },
+];
+
+export const additionalSkills = [
+  "Gestión de Stakeholders",
+  "Optimización de Costos Operativos (OpEx)",
+  "Auditoría y Control Interno",
+  "Diseño de APIs Empresariales",
+  "Monitoreo en Tiempo Real",
+  "Integración SUNAT / Facturación",
+  "Inteligencia Artificial Aplicada",
+  "Seguridad Transaccional",
 ];
 
 export const socialLinks = [
-  {
-    title: "Repositorio GitHub",
-    icon: "bxl-github",
-    href: "https://github.com/viktorolivares",
-  },
   {
     title: "LinkedIn",
     icon: "bxl-linkedin",
     href: "https://www.linkedin.com/in/viktorolivares/",
   },
   {
-    title: "Portafolio",
-    icon: "bx-globe",
-    href: "https://viktorolivares.github.io",
+    title: "Repositorio GitHub",
+    icon: "bxl-github",
+    href: "https://github.com/viktorolivares",
   },
 ];
 
 export const cvDownload = {
-  href: certimasVoPdf,
+  href: "#",
   fileName: "Victor-Olivares-CV.pdf",
 };
 
 export const aboutText =
-  "Ingeniero de Sistemas con más de 10 años de experiencia desarrollando soluciones empresariales, liderando equipos técnicos y optimizando procesos mediante automatización, arquitectura de software e inteligencia artificial. Especializado en Python, Node.js, NestJS, Laravel, PostgreSQL, React y tecnologías cloud. Actualmente lidero iniciativas de prevención de fraude, integración de plataformas financieras y plataformas de monitoreo, construyendo soluciones escalables con enfoque en calidad, rendimiento e innovación.";
+  "Ingeniero de Sistemas y líder tecnológico con más de 10 años de trayectoria diseñando soluciones de alto impacto empresarial, dirigiendo equipos técnicos multidisciplinarios y optimizando la rentabilidad y seguridad operativa. Especializado en arquitectura de software escalable, prevención de fraude en tiempo real, conciliación financiera y modernización operativa mediante Inteligencia Artificial y Ciencia de Datos. Con probada capacidad para alinear la estrategia tecnológica con los objetivos de negocio, liderar transformaciones digitales y garantizar la continuidad de servicios de misión crítica.";
 
 export const experience = [
   {
@@ -56,14 +67,13 @@ export const experience = [
     company: "Apuesta Total",
     date: "Oct 2025 - Presente",
     description:
-      "Lidero proyectos tecnológicos orientados a la automatización, prevención de fraude, integración de plataformas financieras y optimización operativa.",
+      "Dirección y liderazgo de proyectos tecnológicos estratégicos orientados a la automatización de procesos core, mitigación de riesgo por fraude, integración con ecosistemas financieros y optimización de eficiencia operativa.",
     achievements: [
-      "Arquitectura de soluciones backend.",
-      "Liderazgo técnico de proyectos estratégicos.",
-      "Automatización de procesos críticos.",
-      "Integración con múltiples pasarelas de pago.",
-      "Plataforma de monitoreo CCTV.",
-      "Aplicación de Inteligencia Artificial para optimización de procesos.",
+      "Definición y gobierno de la arquitectura backend para plataformas de alta concurrencia.",
+      "Liderazgo técnico y mentoría de equipos en la ejecución de proyectos de misión crítica.",
+      "Diseño de motores de prevención de fraude transaccional con detección en tiempo real.",
+      "Integración de pasarelas de pago y automatización de procesos de conciliación financiera.",
+      "Implementación de agentes de IA para analítica predictiva y optimización de flujos operativos.",
     ],
   },
   {
@@ -71,12 +81,11 @@ export const experience = [
     company: "Apuesta Total",
     date: "Ago 2023 - Oct 2025",
     description:
-      "Desarrollo de herramientas y plataformas para optimizar procesos internos y aumentar la eficiencia operativa.",
+      "Gestión de plataformas internas y desarrollo de soluciones para la maximización de la productividad empresarial y reducción de tiempos de respuesta operativa.",
     achievements: [
-      "Automatización de procesos.",
-      "Desarrollo de APIs REST.",
-      "Dashboards ejecutivos.",
-      "Arquitectura basada en microservicios.",
+      "Diseño e implementación de arquitectura basada en microservicios y APIs REST escalables.",
+      "Construcción de dashboards ejecutivos para soporte a la toma de decisiones estratégicas.",
+      "Automatización de procesos contables y operativos de alto impacto.",
     ],
   },
   {
@@ -84,31 +93,31 @@ export const experience = [
     company: "Apuesta Total",
     date: "Dic 2020 - Ago 2023",
     description:
-      "Desarrollo de herramientas para monitoreo y prevención de fraude en operaciones digitales y retail.",
+      "Desarrollo e implementación de herramientas analíticas para el monitoreo continuo, auditoría y prevención de fraude en canales digitales y retail.",
     achievements: [
-      "Automatización de reportes.",
-      "Herramientas de monitoreo.",
-      "Análisis de datos.",
-      "Optimización de procesos.",
+      "Creación de pipelines automatizados de detección de anomalías transaccionales.",
+      "Optimización de flujos de auditoría y análisis de datos a gran escala.",
     ],
   },
   {
     role: "Instructor en Diseño y Desarrollo Web",
     company: "ITEC123",
     date: "May 2022 - Dic 2022",
-    description: "Capacitación en tecnologías de desarrollo web Full Stack.",
-    achievements: ["HTML", "CSS", "JavaScript", "PHP", "Laravel"],
+    description:
+      "Formación y capacitación de profesionales en arquitecturas web modernas, buenas prácticas de desarrollo y patrones de diseño de software.",
+    achievements: [
+      "Capacitación en desarrollo full-stack, bases de datos y arquitectura de software.",
+    ],
   },
   {
     role: "Analista de Control Interno",
     company: "Corporación PJ",
     date: "Jul 2015 - Nov 2020",
     description:
-      "Análisis de procesos, control interno y desarrollo de soluciones para mejorar la productividad.",
+      "Evaluación y reingeniería de procesos operativos, gobierno de control interno y desarrollo de software para la optimización de productividad.",
     achievements: [
-      "Automatización de reportes.",
-      "Análisis de datos.",
-      "Mejora continua.",
+      "Automatización de auditorías y reportes regulatorios.",
+      "Implementación de marcos de mejora continua y control de riesgos operativos.",
     ],
   },
 ];
@@ -138,7 +147,7 @@ export const certifications = [
       "Azure Administrator",
       "Solutions Architect",
     ],
-    certificateUrl: certimasVoPdf,
+    certificateUrl: null,
   },
   {
     title: "Microsoft Certified: Azure Fundamentals",
@@ -161,36 +170,10 @@ export const certifications = [
   {
     title: "Scrum Foundation Professional Certification (SFPC™)",
     issuer: "CertiProf",
-    issued: "Aug 2024",
-    expires: "Aug 2027",
-    skills: ["Scrum", "Agile"],
-    certificateUrl:
-      "https://www.credly.com/badges/0a8a2d08-d641-4cf5-96cb-adfd9f37e2d6/linked_in_profile",
-  },
-  {
-    title: "Front End Development Libraries",
-    issuer: "freeCodeCamp",
-    issued: "Mar 2024",
-    skills: ["React", "Bootstrap", "jQuery"],
-    certificateUrl:
-      "https://www.freecodecamp.org/certification/viktorolivares/front-end-development-libraries",
-  },
-  {
-    title: "Responsive Web Design",
-    issuer: "freeCodeCamp",
-    issued: "Mar 2024",
-    skills: ["HTML5", "CSS3", "Responsive Design"],
-    certificateUrl:
-      "https://www.freecodecamp.org/certification/viktorolivares/responsive-web-design",
-  },
-  {
-    title: "Microsoft Excel Expert (Office 2019)",
-    issuer: "Microsoft",
-    issued: "Jul 2022",
-    credentialId: "wYWJs-2FNd",
-    skills: ["Microsoft Excel"],
-    certificateUrl:
-      "https://www.certiport.com/portal/Pages/PrintTranscriptInfo.aspx?action=Cert&id=417&cvid=xnwOWgX/EYRy36Bo005Y1g==",
+    issued: "Jun 2020",
+    credentialId: "47228834",
+    skills: ["Scrum", "Metodologías Ágiles", "Gestión de Equipos"],
+    certificateUrl: null,
   },
 ];
 
@@ -198,65 +181,36 @@ export const projects = [
   {
     title: "Plataforma de Prevención de Fraude",
     description:
-      "Plataforma para prevención de fraude mediante reglas de negocio, automatización e integración con múltiples servicios financieros.",
-    tech: ["Python", "PostgreSQL", "Docker"],
-    image: "/works/fraude-prevencion.png",
-    imageAlt: "Diagrama del flujo de prevención de fraude",
+      "Diseño y dirección técnica de un motor de evaluación en tiempo real para transacciones sospechosas, reduciendo significativamente la exposición a riesgos de fraude.",
+    tech: ["Python", "FastAPI", "PostgreSQL", "Docker", "Redis"],
+    impact: "Mitigación proactiva de fraude y reducción de pérdidas operativas",
   },
   {
-    title: "Plataforma de Monitoreo CCTV",
+    title: "Plataforma de Monitoreo CCTV & Seguridad",
     description:
-      "Sistema para monitorear más de 400 DVRs con alertas en tiempo real, métricas y automatización.",
-    tech: ["Python", "REST API", "PostgreSQL"],
-    image: "/works/monitoreo-cctv.png",
-    imageAlt: "Diagrama del sistema de monitoreo CCTV",
+      "Arquitectura centralizada para la ingesta y monitoreo de señales de video y alertas en tiempo real distribuidas a nivel nacional.",
+    tech: ["Node.js", "WebSockets", "Python", "Microservicios"],
+    impact: "Supervisión unificada de operaciones con alertas instantáneas",
   },
   {
     title: "Backend de Recaudadores Financieros",
     description:
-      "Backend para conciliaciones y liquidaciones financieras integrando múltiples recaudadores y pasarelas de pago.",
-    tech: ["Python", "NestJS", "PostgreSQL"],
-    image: "/works/backend-recaudadores.png",
-    imageAlt: "Diagrama de conciliación y liquidación financiera",
+      "Plataforma empresarial de conciliación contable y liquidación automatizada para transacciones con múltiples entidades bancarias y recaudadores.",
+    tech: ["Laravel", "PostgreSQL", "APIs REST", "Docker"],
+    impact: "Automatización completa del cierre y conciliación de pagos",
   },
   {
-    title: "Sistema de Facturación Electrónica",
+    title: "Sistema de Facturación Electrónica SUNAT",
     description:
-      "Sistema de facturación electrónica integrado con SUNAT para empresas.",
-    tech: ["Laravel", "PHP", "PostgreSQL"],
-    image: "/works/facturacion-electronica.png",
-    imageAlt: "Diagrama del proceso de facturación electrónica",
+      "Sistema de emisión, validación y certificación de comprobantes de pago electrónicos de alta concurrencia con integración directa a SUNAT.",
+    tech: ["PHP", "XML", "SOAP", "PostgreSQL"],
+    impact: "Cumplimiento normativo y procesamiento ininterrumpido de comprobantes",
   },
   {
-    title: "Captura de Notificaciones (YAPE - QR BBVA)",
+    title: "Captura & Conciliación de Notificaciones (Yape / BBVA)",
     description:
-      "Aplicación móvil Android que monitorea en tiempo real las notificaciones entrantes de Yape y QR BBVA para extraer los datos de cada transacción y enviarlos automáticamente al sistemas de validación",
-    tech: ["Kotlin", "Vue.js", "Laravel"],
-    image: "/works/captura-notificaciones-yape-qr.png",
-    imageAlt: "Diagrama de captura y validación de notificaciones de pago",
+      "Solución automatizada de escucha y validación de notificaciones bancarias en tiempo real para confirmación inmediata de saldos y transacciones.",
+    tech: ["Android Listener", "Node.js", "Webhooks", "PostgreSQL"],
+    impact: "Validación de cobros en segundos sin intervención manual",
   },
-];
-
-export const additionalSkills = [
-  "Arquitectura de Software",
-  "Arquitectura Limpia",
-  "Microservicios",
-  "APIs REST",
-  "Docker",
-  "Git",
-  "GitHub",
-  "GitLab Integración Continua/Entrega Continua",
-  "AWS",
-  "Microsoft Azure",
-  "PostgreSQL",
-  "MySQL",
-  "SQL Server",
-  "Redis",
-  "Kubernetes",
-  "Inteligencia Artificial",
-  "Aprendizaje Automático",
-  "Ciencia de Datos",
-  "DevOps",
-  "Scrum",
-  "Liderazgo Técnico",
 ];

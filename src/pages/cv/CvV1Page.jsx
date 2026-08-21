@@ -1,291 +1,206 @@
-import { useMemo } from "react";
 import { Link } from "react-router";
 import Footer from "../../components/Footer";
-import profileImage from "../../assets/img/profile.jpg";
 import {
   aboutText,
   additionalSkills,
-  contacts,
   certifications,
+  contacts,
+  cvDownload,
   education,
   experience,
   profile,
-  projects,
   socialLinks,
   technicalSkills,
 } from "../../data/cvData";
 
 const CvV1Page = () => {
-  const impactMetrics = useMemo(() => {
-    const linkedCertifications = certifications.filter(
-      (item) => item.certificateUrl,
-    ).length;
-
-    return [
-      { label: "Años", value: "10+" },
-      { label: "Roles", value: String(experience.length) },
-      { label: "Proyectos", value: String(projects.length) },
-      { label: "Certificados", value: String(linkedCertifications) },
-    ];
-  }, []);
-
-  const mainCertifications = certifications.slice(0, 8);
-  const featuredProjects = projects.slice(0, 4);
-  const topSkills = technicalSkills.slice(0, 8);
-
-  return (    <div className="dark min-h-screen bg-slate-950 px-3 py-4 font-[JetBrains_Mono] text-slate-200 sm:px-6 sm:py-8 lg:px-8 lg:py-10">
-      <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
-        <Link
-          to="/"
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-cyan-400/35 bg-cyan-500/15 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-cyan-100 uppercase transition-colors hover:bg-cyan-500/25 shadow-lg backdrop-blur-md"
-        >
-          <span>Inicio</span>
-        </Link>
-      </div>
-
-      <main className="mx-auto max-w-7xl space-y-6 rounded-2xl border border-slate-700/80 bg-slate-900/85 p-4 shadow-[0_25px_70px_rgba(2,6,23,0.5)] sm:rounded-4xl sm:p-8 lg:p-10">
-        <header className="space-y-5 border-b border-slate-700 pb-6">
-          <div className="flex flex-row items-center gap-4 sm:gap-6">
-            <div className="shrink-0">
-              <div className="h-16 w-16 overflow-hidden rounded-[20px] bg-slate-800 ring-1 ring-slate-700/60 sm:h-24 sm:w-24 sm:rounded-[28px]">
-                <img
-                  src={profileImage}
-                  alt={profile.name}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="min-w-0">
-              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] text-cyan-300 uppercase">
-                Currículum Vitae
-              </p>
-              <h1 className="mt-1.5 text-xl font-bold text-slate-100 sm:text-4xl">
-                {profile.name}
-              </h1>
-              <p className="mt-1 text-xs sm:text-base text-slate-300">{profile.title}</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-4">
-            {impactMetrics.map((metric) => (
-              <article
-                key={metric.label}
-                className="rounded-2xl border border-slate-700 bg-slate-800/70 px-3 py-2.5 sm:px-4 sm:py-3"
-              >
-                <p className="text-[9px] sm:text-[10px] tracking-[0.14em] text-slate-400 uppercase">
-                  {metric.label}
-                </p>
-                <p className="mt-0.5 sm:mt-1 text-xl sm:text-2xl font-bold text-cyan-200">
-                  {metric.value}
-                </p>
-              </article>
-            ))}
-          </div>
-        </header>
-
-        <section className="grid gap-6 lg:grid-cols-[1.25fr_0.7fr]">
-          <article className="rounded-2xl border border-slate-700 bg-slate-800/65 p-4 sm:p-5">
-            <h2 className="text-xs sm:text-sm font-semibold tracking-[0.14em] text-cyan-200 uppercase">
-              Perfil Profesional
-            </h2>
-            <p className="mt-3 leading-7 sm:leading-8 text-sm sm:text-base text-slate-200">{aboutText}</p>
-          </article>
-
-          <article className="space-y-3 rounded-2xl border border-slate-700 bg-slate-800/65 p-4 sm:p-5">
-            <h2 className="text-sm font-semibold tracking-[0.14em] text-cyan-200 uppercase">
-              Contacto
-            </h2>
-            {contacts.map((contact) => (
-              <p
-                key={contact.text}
-                className="flex items-center gap-2 text-sm text-slate-200"
-              >
-                <i className={`bx ${contact.icon} text-cyan-300`} />
-                <span>{contact.text}</span>
-              </p>
-            ))}
-            <div className="pt-2">
-              <h3 className="text-xs font-semibold tracking-[0.12em] text-slate-300 uppercase">
-                Redes
-              </h3>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.title}
-                    href={social.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-lg border border-slate-600 px-2.5 py-1 text-[11px] text-slate-200 hover:border-cyan-400 hover:text-cyan-200"
-                  >
-                    {social.title}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <section className="rounded-2xl border border-slate-700 bg-slate-800/65 p-5">
-          <h2 className="text-sm font-semibold tracking-[0.14em] text-cyan-200 uppercase">
-            Experiencia
-          </h2>
-          <div className="mt-4 space-y-4">
-            {experience.map((item) => (
-              <article
-                key={`${item.role}-${item.date}`}
-                className="rounded-xl border border-slate-700 bg-slate-900/55 p-4"
-              >
-                <div className="flex flex-wrap items-start justify-between gap-2">
-                  <div>
-                    <h3 className="font-semibold text-slate-100">
-                      {item.role}
-                    </h3>
-                    <p className="text-sm text-slate-300">{item.company}</p>
-                  </div>
-                  <span className="rounded-full border border-cyan-500/45 bg-cyan-500/10 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] text-cyan-200 uppercase">
-                    {item.date}
-                  </span>
-                </div>
-                <p className="mt-2 text-sm leading-7 text-slate-300">
-                  {item.description}
-                </p>
-                <ul className="mt-3 grid gap-1.5">
-                  {item.achievements.slice(0, 4).map((achievement) => (
-                    <li
-                      key={`${item.role}-${achievement}`}
-                      className="text-sm text-slate-200"
-                    >
-                      - {achievement}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="grid gap-6 lg:grid-cols-2">
-          <article className="rounded-2xl border border-slate-700 bg-slate-800/65 p-5">
-            <h2 className="text-sm font-semibold tracking-[0.14em] text-cyan-200 uppercase">
-              Educacion
-            </h2>
-            <div className="mt-4 space-y-3">
-              {education.map((item) => (
-                <div
-                  key={`${item.title}-${item.date}`}
-                  className="rounded-xl border border-slate-700 bg-slate-900/55 p-3"
-                >
-                  <p className="font-semibold text-slate-100">{item.title}</p>
-                  <p className="text-sm text-slate-300">{item.institution}</p>
-                  <p className="text-xs tracking-[0.12em] text-slate-400 uppercase">
-                    {item.date}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </article>
-
-          <article className="rounded-2xl border border-slate-700 bg-slate-800/65 p-5">
-            <h2 className="text-sm font-semibold tracking-[0.14em] text-cyan-200 uppercase">
-              Habilidades
-            </h2>
-            <div className="mt-4 grid gap-3">
-              {topSkills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="mb-1.5 flex items-center justify-between">
-                    <span className="text-sm text-slate-200">{skill.name}</span>
-                    <span className="text-xs text-slate-400">
-                      {skill.level}%
-                    </span>
-                  </div>
-                  <div className="h-1.5 rounded-full bg-slate-700">
-                    <div
-                      className="h-full rounded-full bg-cyan-400"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {additionalSkills.slice(0, 8).map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-slate-600 px-2.5 py-1 text-[10px] text-slate-200 uppercase"
-                >
-                  {skill}
+  return (
+    <div className="min-h-screen bg-[#09090b] px-4 py-8 text-zinc-100 font-mono sm:px-6 sm:py-12 lg:px-8">
+      <main className="mx-auto max-w-4xl space-y-10">
+        {/* Header */}
+        <header className="border-b border-zinc-800 pb-8 flex flex-col sm:flex-row sm:items-start justify-between gap-6">
+          <div className="space-y-2">
+            <h1 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">
+              {profile.name}
+            </h1>
+            <p className="text-sm font-medium text-zinc-400">
+              {profile.title} &mdash; Chiclayo, Perú
+            </p>
+            <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-zinc-400">
+              {contacts.map((c) => (
+                <span key={c.text} className="inline-flex items-center gap-1.5">
+                  <i className={`bx ${c.icon} text-zinc-500`} />
+                  <span>{c.text}</span>
                 </span>
               ))}
             </div>
-          </article>
+          </div>
+
+          <div className="flex flex-wrap gap-2 shrink-0">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-300 transition-colors hover:border-zinc-700 hover:text-zinc-100"
+            >
+              <i className="bx bx-arrow-back text-sm" />
+              <span>Volver</span>
+            </Link>
+            {cvDownload?.href && cvDownload.href !== "#" && (
+              <a
+                href={cvDownload.href}
+                download={cvDownload.fileName}
+                className="inline-flex items-center gap-1.5 rounded-md bg-zinc-100 px-3 py-1.5 text-xs font-semibold text-zinc-900 transition-colors hover:bg-zinc-300"
+              >
+                <i className="bx bx-download text-sm" />
+                <span>Descargar PDF</span>
+              </a>
+            )}
+          </div>
+        </header>
+
+        {/* Resumen */}
+        <section className="space-y-3">
+          <h2 className="text-xs font-semibold tracking-wider text-zinc-400 uppercase">
+            Resumen Profesional
+          </h2>
+          <p className="text-xs sm:text-sm leading-relaxed text-zinc-300">
+            {aboutText}
+          </p>
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-2">
-          <article className="rounded-2xl border border-slate-700 bg-slate-800/65 p-5">
-            <h2 className="text-sm font-semibold tracking-[0.14em] text-cyan-200 uppercase">
+        {/* Experiencia */}
+        <section className="space-y-6">
+          <h2 className="text-xs font-semibold tracking-wider text-zinc-400 uppercase border-b border-zinc-800 pb-2">
+            Experiencia Laboral
+          </h2>
+          <div className="space-y-6">
+            {experience.map((item) => (
+              <article key={`${item.role}-${item.date}`} className="space-y-2">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="text-sm font-semibold text-zinc-100">
+                    {item.role}{" "}
+                    <span className="font-normal text-zinc-400">
+                      &mdash; {item.company}
+                    </span>
+                  </h3>
+                  <span className="text-xs text-zinc-500 font-mono">
+                    {item.date}
+                  </span>
+                </div>
+                <p className="text-xs leading-relaxed text-zinc-400">
+                  {item.description}
+                </p>
+                {item.achievements?.length > 0 && (
+                  <ul className="grid gap-1 pt-1 text-xs text-zinc-400">
+                    {item.achievements.map((ach) => (
+                      <li key={ach} className="flex items-start gap-2">
+                        <span className="text-zinc-600">&bull;</span>
+                        <span>{ach}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* Competencias Técnicas */}
+        <section className="space-y-4">
+          <h2 className="text-xs font-semibold tracking-wider text-zinc-400 uppercase border-b border-zinc-800 pb-2">
+            Competencias Técnicas
+          </h2>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {technicalSkills.map((skill) => (
+              <div
+                key={skill.name}
+                className="flex items-center justify-between rounded border border-zinc-800/80 bg-zinc-900/30 px-3 py-2 text-xs"
+              >
+                <span className="text-zinc-200">{skill.name}</span>
+                <span className="text-zinc-500 text-[11px] font-mono">
+                  {skill.level}%
+                </span>
+              </div>
+            ))}
+          </div>
+          {additionalSkills?.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 pt-2">
+              {additionalSkills.map((s) => (
+                <span
+                  key={s}
+                  className="rounded border border-zinc-800 bg-zinc-900 px-2 py-0.5 text-[10px] text-zinc-400"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          )}
+        </section>
+
+        {/* Educación & Certificaciones */}
+        <section className="grid gap-8 sm:grid-cols-2">
+          <div className="space-y-4">
+            <h2 className="text-xs font-semibold tracking-wider text-zinc-400 uppercase border-b border-zinc-800 pb-2">
+              Educación
+            </h2>
+            <div className="space-y-4">
+              {education.map((item) => (
+                <div key={`${item.title}-${item.date}`} className="space-y-1">
+                  <h3 className="text-xs font-semibold text-zinc-200">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-zinc-400">{item.institution}</p>
+                  <p className="text-[10px] text-zinc-500 font-mono">
+                    {item.date}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <h2 className="text-xs font-semibold tracking-wider text-zinc-400 uppercase border-b border-zinc-800 pb-2">
               Certificaciones
             </h2>
-            <div className="mt-4 space-y-3">
-              {mainCertifications.map((cert) => (
-                <div
-                  key={cert.title}
-                  className="rounded-xl border border-slate-700 bg-slate-900/55 p-3"
-                >
-                  <p className="font-semibold text-slate-100">{cert.title}</p>
-                  <p className="text-xs text-slate-300">
-                    {cert.issuer} - {cert.issued}
+            <div className="space-y-3">
+              {certifications.map((cert) => (
+                <div key={cert.title} className="space-y-1 text-xs">
+                  <h3 className="font-semibold text-zinc-200">{cert.title}</h3>
+                  <p className="text-zinc-400">
+                    {cert.issuer} &bull; {cert.issued}
                   </p>
-                  {cert.credentialId ? (
-                    <p className="mt-1 text-xs text-slate-300">
-                      ID:{" "}
-                      <span className="font-semibold text-slate-100">
-                        {cert.credentialId}
-                      </span>
-                    </p>
-                  ) : null}
-                  {cert.certificateUrl ? (
+                  {cert.certificateUrl && (
                     <a
                       href={cert.certificateUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-2 inline-flex items-center gap-2 rounded-lg border border-cyan-500/50 bg-cyan-500/10 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] text-cyan-200 uppercase"
+                      className="inline-block text-[11px] text-zinc-400 underline hover:text-zinc-100"
                     >
-                      <i className="bx bx-link-external" />
-                      <span>Mostrar credencial</span>
+                      Ver credencial
                     </a>
-                  ) : null}
+                  )}
                 </div>
               ))}
             </div>
-          </article>
-
-          <article className="rounded-2xl border border-slate-700 bg-slate-800/65 p-5">
-            <h2 className="text-sm font-semibold tracking-[0.14em] text-cyan-200 uppercase">
-              Proyectos
-            </h2>
-            <div className="mt-4 space-y-3">
-              {featuredProjects.map((project) => (
-                <div
-                  key={project.title}
-                  className="rounded-xl border border-slate-700 bg-slate-900/55 p-3"
-                >
-                  <p className="font-semibold text-slate-100">
-                    {project.title}
-                  </p>
-                  <p className="mt-1 text-sm text-slate-300">
-                    {project.description}
-                  </p>
-                  <p className="mt-2 text-xs text-cyan-200">
-                    {project.tech.join(" · ")}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </article>
+          </div>
         </section>
-      </main>
 
-      <Footer />
+        {/* Redes */}
+        <section className="border-t border-zinc-800 pt-6 flex flex-wrap gap-4 text-xs text-zinc-400">
+          {socialLinks.map((s) => (
+            <a
+              key={s.title}
+              href={s.href}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-zinc-100 transition-colors"
+            >
+              [{s.title}]
+            </a>
+          ))}
+        </section>
+
+        <Footer />
+      </main>
     </div>
   );
 };
