@@ -226,16 +226,16 @@ const HomePage = () => {
               </span>
             </button>
 
-            {/* Botón Imprimir / PDF */}
+            {/* Botón Imprimir / PDF (Solo en PC / Desktop) */}
             <button
               onClick={handlePrint}
-              className="hidden sm:inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-colors cursor-pointer"
+              className="hidden lg:inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-medium transition-colors cursor-pointer"
               style={{
                 backgroundColor: "var(--btn-sec-bg)",
                 border: "1px solid var(--btn-sec-border)",
                 color: "var(--btn-sec-text)",
               }}
-              title="Imprimir o Guardar como PDF"
+              title="Imprimir o Guardar como PDF (Solo en PC)"
             >
               <i className="bx bx-printer text-base" />
               <span>Imprimir / PDF</span>
@@ -264,7 +264,7 @@ const HomePage = () => {
       {/* DRAWER / MODAL DE ÍNDICE DE SECCIONES (TOUCH-FRIENDLY)     */}
       {/* ========================================================= */}
       {isDrawerOpen && (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-0 sm:p-4">
+        <div className="no-print fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-xs p-0 sm:p-4">
           <div
             className="w-full sm:max-w-md rounded-t-2xl sm:rounded-2xl border shadow-2xl p-5 space-y-4 max-h-[85vh] overflow-y-auto animate-in slide-in-from-bottom"
             style={{
@@ -308,9 +308,13 @@ const HomePage = () => {
 
             <div className="pt-2 border-t flex items-center justify-between text-xs" style={{ borderColor: "var(--border-subtle)" }}>
               <span style={{ color: "var(--text-muted)" }}>Victor Olivares &bull; Portafolio</span>
+              {/* Botón Exportar PDF visible únicamente en PC */}
               <button
-                onClick={handlePrint}
-                className="inline-flex items-center gap-1 font-semibold text-blue-500 hover:underline cursor-pointer"
+                onClick={() => {
+                  setIsDrawerOpen(false);
+                  setTimeout(() => handlePrint(), 150);
+                }}
+                className="hidden lg:inline-flex items-center gap-1 font-semibold text-blue-500 hover:underline cursor-pointer"
               >
                 <i className="bx bx-printer" />
                 <span>Exportar PDF</span>
@@ -653,12 +657,15 @@ const HomePage = () => {
               
               {/* Grilla Responsiva de Proyectos con Bounds Containment */}
               <div className="grid gap-3 sm:grid-cols-2 w-full min-w-0">
-                {projects.map((p) => {
+                {projects.map((p, idx) => {
                   const diagrama = diagramasPorProyecto[p.title];
+                  const isLastOdd = idx === projects.length - 1 && projects.length % 2 !== 0;
                   return (
                     <div
                       key={p.title}
-                      className="rounded-xl p-3 sm:p-3.5 flex flex-col justify-between space-y-2.5 w-full min-w-0 box-border overflow-hidden transition-all hover:border-zinc-500/40"
+                      className={`rounded-xl p-3 sm:p-3.5 flex flex-col justify-between space-y-2.5 w-full min-w-0 box-border overflow-hidden transition-all hover:border-zinc-500/40 ${
+                        isLastOdd ? "sm:col-span-2" : ""
+                      }`}
                       style={{
                         backgroundColor: "var(--bg-card)",
                         border: "1px solid var(--border-subtle)",
@@ -675,25 +682,27 @@ const HomePage = () => {
                         {p.impact && (
                           <div className="flex items-start gap-1.5 text-[10.5px] sm:text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
                             <i className="bx bx-trending-up text-sm shrink-0 mt-0.5" />
-                            <span className="leading-tight">{p.impact}</span>
+                            <span className="leading-tight break-words">{p.impact}</span>
                           </div>
                         )}
 
-                        {/* Diagrama de Flujo Técnico Contenido */}
+                        {/* Diagrama de Flujo Técnico Contenido y Wrap-Safe */}
                         {diagrama && (
                           <div
-                            className="mt-1.5 rounded-lg px-2 py-1.5 text-[9.5px] sm:text-[10px] font-mono flex items-center justify-between gap-1 w-full min-w-0"
+                            className="mt-1.5 rounded-lg p-2 text-[9.5px] sm:text-[10px] font-mono w-full min-w-0"
                             style={{
                               backgroundColor: "var(--bg-tag)",
                               border: "1px solid var(--border-tag)",
                               color: "var(--text-secondary)",
                             }}
                           >
-                            <span className="font-semibold text-blue-500 truncate">{diagrama.entrada}</span>
-                            <span className="shrink-0" style={{ color: "var(--text-dim)" }}>&rarr;</span>
-                            <span className="font-semibold text-amber-500 truncate">{diagrama.nucleo}</span>
-                            <span className="shrink-0" style={{ color: "var(--text-dim)" }}>&rarr;</span>
-                            <span className="font-semibold text-emerald-500 truncate">{diagrama.salida}</span>
+                            <div className="flex flex-wrap items-center gap-1 sm:gap-1.5">
+                              <span className="font-semibold text-blue-500">{diagrama.entrada}</span>
+                              <i className="bx bx-right-arrow-alt text-xs text-zinc-400 shrink-0" />
+                              <span className="font-semibold text-amber-500">{diagrama.nucleo}</span>
+                              <i className="bx bx-right-arrow-alt text-xs text-zinc-400 shrink-0" />
+                              <span className="font-semibold text-emerald-500">{diagrama.salida}</span>
+                            </div>
                           </div>
                         )}
                       </div>

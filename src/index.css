@@ -159,6 +159,7 @@ body {
 /* Contenedor Adaptable de Página / Dossier */
 .a4-page {
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
   background-color: var(--bg-page);
   color: var(--text-primary);
@@ -170,8 +171,9 @@ body {
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
 }
 
 @media (min-width: 640px) {
@@ -191,9 +193,9 @@ body {
 @media (min-width: 1024px) {
   .a4-page {
     max-width: 210mm;
-    min-height: 297mm;
+    min-height: auto;
     border-radius: 8px;
-    padding: 13mm 15mm 11mm 15mm;
+    padding: 14mm 16mm 14mm 16mm;
   }
 }
 
