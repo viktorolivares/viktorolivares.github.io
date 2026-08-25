@@ -1,115 +1,136 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 /* Variables por defecto (Modo Claro) */
 :root {
-  --bg-workspace: #e4e4e7;
-  --bg-toolbar: rgba(255, 255, 255, 0.92);
+  --bg-workspace: #ececf0;
+  --bg-toolbar: rgba(255, 255, 255, 0.88);
+  --bg-mobile-nav: rgba(255, 255, 255, 0.92);
   --bg-page: #ffffff;
   --border-page: #d4d4d8;
   --border-subtle: #e4e4e7;
   --border-section: #d4d4d8;
-  --bg-card: #f8f8f9;
-  --bg-kpi: #f4f4f5;
-  --bg-tag: #f4f4f5;
+  --bg-card: #f8f8fa;
+  --bg-card-hover: #f1f1f4;
+  --bg-kpi: #f4f4f6;
+  --bg-tag: #f4f4f6;
   --border-tag: #e4e4e7;
-  --text-primary: #18181b;
-  --text-secondary: #3f3f46;
-  --text-muted: #71717a;
-  --text-dim: #a1a1aa;
-  --btn-primary-bg: #18181b;
+  --text-primary: #09090b;
+  --text-secondary: #27272a;
+  --text-muted: #52525b;
+  --text-dim: #71717a;
+  --btn-primary-bg: #09090b;
   --btn-primary-text: #ffffff;
   --btn-primary-hover: #27272a;
   --btn-sec-bg: #ffffff;
   --btn-sec-border: #d4d4d8;
   --btn-sec-text: #18181b;
   --btn-sec-hover: #f4f4f5;
-  --shadow-page: 0 15px 35px -10px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --shadow-page: 0 12px 32px -8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 2px 6px -1px rgba(0, 0, 0, 0.04);
 }
 
 /* Modo Oscuro */
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
-    --bg-workspace: #111215;
-    --bg-toolbar: rgba(9, 9, 11, 0.92);
-    --bg-page: #09090b;
-    --border-page: #27272a;
-    --border-subtle: #27272a;
-    --border-section: #27272a;
-    --bg-card: rgba(24, 24, 27, 0.4);
-    --bg-kpi: rgba(9, 9, 11, 0.8);
-    --bg-tag: #18181b;
-    --border-tag: #27272a;
+    --bg-workspace: #0b0c0e;
+    --bg-toolbar: rgba(11, 12, 14, 0.88);
+    --bg-mobile-nav: rgba(15, 16, 20, 0.92);
+    --bg-page: #121316;
+    --border-page: #23252a;
+    --border-subtle: #1e2025;
+    --border-section: #282a30;
+    --bg-card: #16181d;
+    --bg-card-hover: #1b1e24;
+    --bg-kpi: #17191e;
+    --bg-tag: #1a1c22;
+    --border-tag: #252830;
     --text-primary: #f4f4f5;
     --text-secondary: #d4d4d8;
-    --text-muted: #a1a1aa;
-    --text-dim: #71717a;
+    --text-muted: #9ca3af;
+    --text-dim: #6b7280;
     --btn-primary-bg: #f4f4f5;
     --btn-primary-text: #09090b;
     --btn-primary-hover: #e4e4e7;
-    --btn-sec-bg: #18181b;
-    --btn-sec-border: #27272a;
+    --btn-sec-bg: #16181d;
+    --btn-sec-border: #262830;
     --btn-sec-text: #f4f4f5;
-    --btn-sec-hover: #27272a;
-    --shadow-page: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    --btn-sec-hover: #22252c;
+    --shadow-page: 0 20px 45px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    --shadow-card: 0 2px 6px -1px rgba(0, 0, 0, 0.3);
   }
 }
 
 :root.dark {
-  --bg-workspace: #111215;
-  --bg-toolbar: rgba(9, 9, 11, 0.92);
-  --bg-page: #09090b;
-  --border-page: #27272a;
-  --border-subtle: #27272a;
-  --border-section: #27272a;
-  --bg-card: rgba(24, 24, 27, 0.4);
-  --bg-kpi: rgba(9, 9, 11, 0.8);
-  --bg-tag: #18181b;
-  --border-tag: #27272a;
+  --bg-workspace: #0b0c0e;
+  --bg-toolbar: rgba(11, 12, 14, 0.88);
+  --bg-mobile-nav: rgba(15, 16, 20, 0.92);
+  --bg-page: #121316;
+  --border-page: #23252a;
+  --border-subtle: #1e2025;
+  --border-section: #282a30;
+  --bg-card: #16181d;
+  --bg-card-hover: #1b1e24;
+  --bg-kpi: #17191e;
+  --bg-tag: #1a1c22;
+  --border-tag: #252830;
   --text-primary: #f4f4f5;
   --text-secondary: #d4d4d8;
-  --text-muted: #a1a1aa;
-  --text-dim: #71717a;
+  --text-muted: #9ca3af;
+  --text-dim: #6b7280;
   --btn-primary-bg: #f4f4f5;
   --btn-primary-text: #09090b;
   --btn-primary-hover: #e4e4e7;
-  --btn-sec-bg: #18181b;
-  --btn-sec-border: #27272a;
+  --btn-sec-bg: #16181d;
+  --btn-sec-border: #262830;
   --btn-sec-text: #f4f4f5;
-  --btn-sec-hover: #27272a;
-  --shadow-page: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --btn-sec-hover: #22252c;
+  --shadow-page: 0 20px 45px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-card: 0 2px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
 :root.light {
-  --bg-workspace: #e4e4e7;
-  --bg-toolbar: rgba(255, 255, 255, 0.92);
+  --bg-workspace: #ececf0;
+  --bg-toolbar: rgba(255, 255, 255, 0.88);
+  --bg-mobile-nav: rgba(255, 255, 255, 0.92);
   --bg-page: #ffffff;
   --border-page: #d4d4d8;
   --border-subtle: #e4e4e7;
   --border-section: #d4d4d8;
-  --bg-card: #f8f8f9;
-  --bg-kpi: #f4f4f5;
-  --bg-tag: #f4f4f5;
+  --bg-card: #f8f8fa;
+  --bg-card-hover: #f1f1f4;
+  --bg-kpi: #f4f4f6;
+  --bg-tag: #f4f4f6;
   --border-tag: #e4e4e7;
-  --text-primary: #18181b;
-  --text-secondary: #3f3f46;
-  --text-muted: #71717a;
-  --text-dim: #a1a1aa;
-  --btn-primary-bg: #18181b;
+  --text-primary: #09090b;
+  --text-secondary: #27272a;
+  --text-muted: #52525b;
+  --text-dim: #71717a;
+  --btn-primary-bg: #09090b;
   --btn-primary-text: #ffffff;
   --btn-primary-hover: #27272a;
   --btn-sec-bg: #ffffff;
   --btn-sec-border: #d4d4d8;
   --btn-sec-text: #18181b;
   --btn-sec-hover: #f4f4f5;
-  --shadow-page: 0 15px 35px -10px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --shadow-page: 0 12px 32px -8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 2px 6px -1px rgba(0, 0, 0, 0.04);
 }
 
 body {
   background-color: var(--bg-workspace);
   color: var(--text-primary);
-  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  letter-spacing: -0.01em;
+  font-family: var(--font-sans);
+  letter-spacing: -0.012em;
   margin: 0;
   padding: 0;
   transition: background-color 0.2s ease, color 0.2s ease;
@@ -118,41 +139,62 @@ body {
 }
 
 ::selection {
-  background: var(--text-muted);
+  background: var(--text-primary);
   color: var(--bg-page);
 }
 
 /* Minimal scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-workspace);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--border-page);
-  border-radius: 4px;
+  border-radius: 9999px;
 }
 
-/* Formato A4 Estándar (210mm x 297mm) */
+/* Contenedor Adaptable de Página / Dossier */
 .a4-page {
   width: 100%;
-  max-width: 210mm;
-  min-height: 297mm;
   box-sizing: border-box;
   background-color: var(--bg-page);
   color: var(--text-primary);
   border: 1px solid var(--border-page);
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: var(--shadow-page);
-  padding: 14mm 16mm 12mm 16mm;
+  padding: 1.25rem 1rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .a4-page {
+    padding: 1.75rem 1.5rem;
+    border-radius: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .a4-page {
+    padding: 2.25rem 2rem;
+    border-radius: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .a4-page {
+    max-width: 210mm;
+    min-height: 297mm;
+    border-radius: 8px;
+    padding: 13mm 15mm 11mm 15mm;
+  }
 }
 
 @page {
@@ -164,6 +206,7 @@ body {
   body {
     background: #ffffff !important;
     color: #000000 !important;
+    font-family: var(--font-sans) !important;
   }
   .no-print {
     display: none !important;
@@ -179,8 +222,9 @@ body {
     height: 297mm !important;
     max-width: 210mm !important;
     min-height: 297mm !important;
-    padding: 15mm !important;
+    padding: 14mm 15mm 12mm 15mm !important;
     page-break-after: always !important;
     break-after: page !important;
   }
 }
+
