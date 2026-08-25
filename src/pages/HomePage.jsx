@@ -40,28 +40,28 @@ const pilaresEspecialidad = [
 const diagramasPorProyecto = {
   "Plataforma de Prevención de Fraude": {
     entrada: "Transacciones",
-    nucleo: "Motor de Reglas & IA",
-    salida: "Alertas y Bloqueo",
+    nucleo: "Reglas & IA",
+    salida: "Alertas / Bloqueo",
   },
   "Plataforma de Monitoreo CCTV & Seguridad": {
     entrada: "DVRs / Señales",
-    nucleo: "Central de Monitoreo",
-    salida: "Alertas en Tiempo Real",
+    nucleo: "Central CCTV",
+    salida: "Alertas Tiempo Real",
   },
   "Backend de Recaudadores Financieros": {
     entrada: "Recaudadores",
-    nucleo: "Conciliación Contable",
+    nucleo: "Conciliación",
     salida: "Liquidación Bancaria",
   },
   "Sistema de Facturación Electrónica SUNAT": {
-    entrada: "Comprobantes XML",
-    nucleo: "Validación SUNAT",
+    entrada: "XML / Comprobantes",
+    nucleo: "Validador SUNAT",
     salida: "Emisión & Reportes",
   },
   "Captura & Conciliación de Notificaciones (Yape / BBVA)": {
     entrada: "Notificaciones",
     nucleo: "Listener Android",
-    salida: "Validación de Saldo",
+    salida: "Validación Saldo",
   },
 };
 
@@ -192,7 +192,7 @@ const HomePage = () => {
 
           {/* Acciones de Cabecera */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-            {/* Botón de Índice de Secciones (Visible en Desktop y Tablet) */}
+            {/* Botón de Índice de Secciones */}
             <button
               onClick={() => setIsDrawerOpen(true)}
               className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-xs font-medium transition-colors cursor-pointer"
@@ -329,7 +329,7 @@ const HomePage = () => {
         {/* PÁGINA 1: RESUMEN, KPIS, PILARES & INICIO TRAYECTORIA      */}
         {/* ========================================================= */}
         <section id="pagina-1" className="a4-page">
-          <div className="flex-1 flex flex-col justify-start space-y-5 sm:space-y-6">
+          <div className="flex-1 flex flex-col justify-start space-y-5 sm:space-y-6 min-w-0">
             {/* Encabezado de Documento (Oculto en Impresión) */}
             <div
               className="no-print flex items-center justify-between pb-2 text-[11px] font-mono border-b"
@@ -342,7 +342,7 @@ const HomePage = () => {
             </div>
 
             {/* Header del Perfil Ejecutivo */}
-            <div className="space-y-3">
+            <div className="space-y-3 min-w-0">
               {/* Badge de Disponibilidad y Experiencia */}
               <div className="flex flex-wrap items-center gap-2">
                 <div
@@ -362,8 +362,8 @@ const HomePage = () => {
               </div>
 
               {/* Nombre y Título Directivo */}
-              <div className="space-y-1">
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight" style={{ color: "var(--text-primary)" }}>
+              <div className="space-y-1 min-w-0">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight break-words" style={{ color: "var(--text-primary)" }}>
                   {profile.name}
                 </h1>
                 <p className="text-sm sm:text-base font-semibold text-blue-600 dark:text-blue-400">
@@ -388,7 +388,7 @@ const HomePage = () => {
                   <span>{contacts[0].text}</span>
                 </a>
 
-                {/* Email Clickeable con opción de copiar */}
+                {/* Email Clickeable */}
                 <a
                   href={`mailto:${contacts[1].text}`}
                   className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-colors hover:bg-zinc-500/10 cursor-pointer"
@@ -442,19 +442,19 @@ const HomePage = () => {
 
             {/* Indicadores Clave de Desempeño (Executive KPIs) */}
             <div
-              className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 py-3 sm:py-4 border-y"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 py-3 sm:py-4 border-y min-w-0"
               style={{ borderColor: "var(--border-subtle)" }}
             >
               {executiveKpis.map((kpi) => (
                 <div
                   key={kpi.label}
-                  className="rounded-xl p-3 sm:p-3.5 flex flex-col justify-center transition-all hover:scale-[1.01]"
+                  className="rounded-xl p-3 sm:p-3.5 flex flex-col justify-center min-w-0 transition-all hover:scale-[1.01]"
                   style={{
                     backgroundColor: "var(--bg-kpi)",
                     border: "1px solid var(--border-tag)",
                   }}
                 >
-                  <p className="font-mono text-sm sm:text-base lg:text-lg font-bold tracking-tight text-blue-600 dark:text-blue-400">
+                  <p className="font-mono text-sm sm:text-base lg:text-lg font-bold tracking-tight text-blue-600 dark:text-blue-400 truncate">
                     {kpi.value}
                   </p>
                   <p className="text-[11px] sm:text-xs mt-1 leading-snug font-medium" style={{ color: "var(--text-muted)" }}>
@@ -465,7 +465,7 @@ const HomePage = () => {
             </div>
 
             {/* 01. Resumen Profesional */}
-            <section id="resumen" className="space-y-2 scroll-mt-16">
+            <section id="resumen" className="space-y-2 scroll-mt-16 min-w-0">
               <h2
                 className="text-xs sm:text-sm font-bold tracking-wider uppercase pb-1.5 border-b flex items-center gap-2"
                 style={{ borderColor: "var(--border-section)", color: "var(--text-primary)" }}
@@ -479,7 +479,7 @@ const HomePage = () => {
             </section>
 
             {/* 02. Pilares de Especialidad */}
-            <section id="pilares" className="space-y-2.5 scroll-mt-16">
+            <section id="pilares" className="space-y-2.5 scroll-mt-16 min-w-0">
               <h2
                 className="text-xs sm:text-sm font-bold tracking-wider uppercase pb-1.5 border-b flex items-center gap-2"
                 style={{ borderColor: "var(--border-section)", color: "var(--text-primary)" }}
@@ -487,21 +487,21 @@ const HomePage = () => {
                 <span className="font-mono text-blue-500">02.</span>
                 <span>Pilares de Especialidad & Optimización Operativa</span>
               </h2>
-              <div className="grid gap-2.5 sm:grid-cols-2">
+              <div className="grid gap-2.5 sm:grid-cols-2 min-w-0">
                 {pilaresEspecialidad.map((pilar) => (
                   <div
                     key={pilar.title}
-                    className="rounded-xl p-3 sm:p-3.5 space-y-1.5 transition-all hover:border-zinc-500/40"
+                    className="rounded-xl p-3 sm:p-3.5 space-y-1.5 min-w-0 transition-all hover:border-zinc-500/40"
                     style={{
                       backgroundColor: "var(--bg-card)",
                       border: "1px solid var(--border-subtle)",
                     }}
                   >
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 min-w-0">
                       <div className="flex h-6 w-6 items-center justify-center rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-400 shrink-0 text-sm">
                         <i className={`bx ${pilar.icon}`} />
                       </div>
-                      <h3 className="text-xs sm:text-[13px] font-bold" style={{ color: "var(--text-primary)" }}>
+                      <h3 className="text-xs sm:text-[13px] font-bold truncate" style={{ color: "var(--text-primary)" }}>
                         {pilar.title}
                       </h3>
                     </div>
@@ -514,7 +514,7 @@ const HomePage = () => {
             </section>
 
             {/* 03. Trayectoria Profesional (Posición de Liderazgo Actual) */}
-            <section id="trayectoria" className="space-y-2 scroll-mt-16">
+            <section id="trayectoria" className="space-y-2 scroll-mt-16 min-w-0">
               <h2
                 className="text-xs sm:text-sm font-bold tracking-wider uppercase pb-1.5 border-b flex items-center gap-2"
                 style={{ borderColor: "var(--border-section)", color: "var(--text-primary)" }}
@@ -523,13 +523,13 @@ const HomePage = () => {
                 <span>Trayectoria Profesional (Posición Actual de Liderazgo)</span>
               </h2>
               <div
-                className="rounded-xl p-3.5 sm:p-4 space-y-2"
+                className="rounded-xl p-3.5 sm:p-4 space-y-2 min-w-0"
                 style={{
                   backgroundColor: "var(--bg-card)",
                   border: "1px solid var(--border-subtle)",
                 }}
               >
-                <div className="flex flex-wrap items-baseline justify-between gap-1.5">
+                <div className="flex flex-wrap items-baseline justify-between gap-1.5 min-w-0">
                   <h3 className="text-xs sm:text-sm font-bold" style={{ color: "var(--text-primary)" }}>
                     {experience[0].role}{" "}
                     <span className="font-semibold text-blue-600 dark:text-blue-400">
@@ -581,7 +581,7 @@ const HomePage = () => {
         {/* PÁGINA 2: CONTINUACIÓN TRAYECTORIA & ARQUITECTURA          */}
         {/* ========================================================= */}
         <section id="pagina-2" className="a4-page">
-          <div className="flex-1 flex flex-col justify-start space-y-5 sm:space-y-6">
+          <div className="flex-1 flex flex-col justify-start space-y-5 sm:space-y-6 min-w-0">
             {/* Encabezado de Documento (Oculto en Impresión) */}
             <div
               className="no-print flex items-center justify-between pb-2 text-[11px] font-mono border-b"
@@ -594,7 +594,7 @@ const HomePage = () => {
             </div>
 
             {/* Continuación de Trayectoria */}
-            <div className="space-y-2.5">
+            <div className="space-y-2.5 min-w-0">
               <h2
                 className="text-xs sm:text-sm font-bold tracking-wider uppercase pb-1.5 border-b flex items-center gap-2"
                 style={{ borderColor: "var(--border-section)", color: "var(--text-primary)" }}
@@ -602,17 +602,17 @@ const HomePage = () => {
                 <span className="font-mono text-blue-500">03.</span>
                 <span>Trayectoria Profesional (Continuación)</span>
               </h2>
-              <div className="space-y-2.5">
+              <div className="space-y-2.5 min-w-0">
                 {experience.slice(1).map((item) => (
                   <div
                     key={`${item.role}-${item.date}`}
-                    className="rounded-xl p-3 sm:p-3.5 space-y-1.5"
+                    className="rounded-xl p-3 sm:p-3.5 space-y-1.5 min-w-0"
                     style={{
                       backgroundColor: "var(--bg-card)",
                       border: "1px solid var(--border-subtle)",
                     }}
                   >
-                    <div className="flex flex-wrap items-baseline justify-between gap-1.5">
+                    <div className="flex flex-wrap items-baseline justify-between gap-1.5 min-w-0">
                       <h3 className="text-xs sm:text-[13px] font-bold" style={{ color: "var(--text-primary)" }}>
                         {item.role}{" "}
                         <span className="font-medium text-blue-600 dark:text-blue-400">
@@ -642,7 +642,7 @@ const HomePage = () => {
             </div>
 
             {/* 04. Sistemas de Misión Crítica & Arquitectura Implementada */}
-            <section id="proyectos" className="space-y-2.5 scroll-mt-16">
+            <section id="proyectos" className="space-y-2.5 scroll-mt-16 min-w-0 w-full">
               <h2
                 className="text-xs sm:text-sm font-bold tracking-wider uppercase pb-1.5 border-b flex items-center gap-2"
                 style={{ borderColor: "var(--border-section)", color: "var(--text-primary)" }}
@@ -650,34 +650,39 @@ const HomePage = () => {
                 <span className="font-mono text-blue-500">04.</span>
                 <span>Sistemas de Misión Crítica & Arquitectura Implementada</span>
               </h2>
-              <div className="grid gap-2.5 sm:grid-cols-2">
+              
+              {/* Grilla Responsiva de Proyectos con Bounds Containment */}
+              <div className="grid gap-3 sm:grid-cols-2 w-full min-w-0">
                 {projects.map((p) => {
                   const diagrama = diagramasPorProyecto[p.title];
                   return (
                     <div
                       key={p.title}
-                      className="rounded-xl p-3 sm:p-3.5 flex flex-col justify-between space-y-2 transition-all hover:border-zinc-500/40"
+                      className="rounded-xl p-3 sm:p-3.5 flex flex-col justify-between space-y-2.5 w-full min-w-0 box-border overflow-hidden transition-all hover:border-zinc-500/40"
                       style={{
                         backgroundColor: "var(--bg-card)",
                         border: "1px solid var(--border-subtle)",
                       }}
                     >
-                      <div>
-                        <h3 className="text-xs sm:text-[13px] font-bold" style={{ color: "var(--text-primary)" }}>
+                      <div className="space-y-1.5 min-w-0">
+                        <h3 className="text-xs sm:text-[13px] font-bold leading-snug break-words" style={{ color: "var(--text-primary)" }}>
                           {p.title}
                         </h3>
-                        <p className="text-[11px] sm:text-xs leading-relaxed mt-1" style={{ color: "var(--text-secondary)" }}>
+                        <p className="text-[11px] sm:text-xs leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                           {p.description}
                         </p>
+                        
                         {p.impact && (
-                          <div className="mt-1.5 flex items-center gap-1.5 text-[10.5px] sm:text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
-                            <i className="bx bx-trending-up text-sm" />
-                            <span>{p.impact}</span>
+                          <div className="flex items-start gap-1.5 text-[10.5px] sm:text-[11px] font-medium text-emerald-600 dark:text-emerald-400">
+                            <i className="bx bx-trending-up text-sm shrink-0 mt-0.5" />
+                            <span className="leading-tight">{p.impact}</span>
                           </div>
                         )}
+
+                        {/* Diagrama de Flujo Técnico Contenido */}
                         {diagrama && (
                           <div
-                            className="mt-2 rounded-lg px-2.5 py-1 text-[10px] sm:text-[10.5px] font-mono flex items-center justify-between gap-1 overflow-x-auto"
+                            className="mt-1.5 rounded-lg px-2 py-1.5 text-[9.5px] sm:text-[10px] font-mono flex items-center justify-between gap-1 w-full min-w-0"
                             style={{
                               backgroundColor: "var(--bg-tag)",
                               border: "1px solid var(--border-tag)",
@@ -685,21 +690,23 @@ const HomePage = () => {
                             }}
                           >
                             <span className="font-semibold text-blue-500 truncate">{diagrama.entrada}</span>
-                            <span style={{ color: "var(--text-dim)" }}>&rarr;</span>
+                            <span className="shrink-0" style={{ color: "var(--text-dim)" }}>&rarr;</span>
                             <span className="font-semibold text-amber-500 truncate">{diagrama.nucleo}</span>
-                            <span style={{ color: "var(--text-dim)" }}>&rarr;</span>
+                            <span className="shrink-0" style={{ color: "var(--text-dim)" }}>&rarr;</span>
                             <span className="font-semibold text-emerald-500 truncate">{diagrama.salida}</span>
                           </div>
                         )}
                       </div>
+
+                      {/* Chips de Stack Tecnológico */}
                       <div
-                        className="flex flex-wrap gap-1 pt-1.5 border-t"
+                        className="flex flex-wrap gap-1 pt-2 border-t w-full min-w-0"
                         style={{ borderColor: "var(--border-subtle)" }}
                       >
                         {p.tech.map((t) => (
                           <span
                             key={t}
-                            className="rounded px-1.5 py-0.5 text-[9.5px] sm:text-[10px] font-mono"
+                            className="rounded px-1.5 py-0.5 text-[9px] sm:text-[9.5px] font-mono"
                             style={{
                               backgroundColor: "var(--bg-tag)",
                               border: "1px solid var(--border-tag)",
@@ -731,7 +738,7 @@ const HomePage = () => {
         {/* PÁGINA 3: STACK, EDUCACIÓN, CERTIFICACIONES & CONTACTO     */}
         {/* ========================================================= */}
         <section id="pagina-3" className="a4-page">
-          <div className="flex-1 flex flex-col justify-start space-y-5 sm:space-y-6">
+          <div className="flex-1 flex flex-col justify-start space-y-5 sm:space-y-6 min-w-0">
             {/* Encabezado de Documento (Oculto en Impresión) */}
             <div
               className="no-print flex items-center justify-between pb-2 text-[11px] font-mono border-b"
@@ -744,7 +751,7 @@ const HomePage = () => {
             </div>
 
             {/* 05. Competencias Técnicas & Gobierno de Stack */}
-            <section id="skills" className="space-y-2.5 scroll-mt-16">
+            <section id="skills" className="space-y-2.5 scroll-mt-16 min-w-0">
               <h2
                 className="text-xs sm:text-sm font-bold tracking-wider uppercase pb-1.5 border-b flex items-center gap-2"
                 style={{ borderColor: "var(--border-section)", color: "var(--text-primary)" }}
@@ -752,27 +759,27 @@ const HomePage = () => {
                 <span className="font-mono text-blue-500">05.</span>
                 <span>Competencias Técnicas & Gobierno de Stack</span>
               </h2>
-              <div className="grid gap-1.5 sm:grid-cols-2">
+              <div className="grid gap-1.5 sm:grid-cols-2 min-w-0">
                 {technicalSkills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center justify-between rounded-lg px-3 py-1.5 text-xs"
+                    className="flex items-center justify-between rounded-lg px-3 py-1.5 text-xs min-w-0"
                     style={{
                       backgroundColor: "var(--bg-card)",
                       border: "1px solid var(--border-subtle)",
                     }}
                   >
-                    <span className="font-medium text-[11px] sm:text-xs" style={{ color: "var(--text-primary)" }}>
+                    <span className="font-medium text-[11px] sm:text-xs truncate mr-2" style={{ color: "var(--text-primary)" }}>
                       {skill.name}
                     </span>
-                    <span className="text-[10px] sm:text-[11px] font-mono font-semibold text-blue-600 dark:text-blue-400">
+                    <span className="text-[10px] sm:text-[11px] font-mono font-semibold text-blue-600 dark:text-blue-400 shrink-0">
                       {skill.level}%
                     </span>
                   </div>
                 ))}
               </div>
               {additionalSkills?.length > 0 && (
-                <div className="space-y-1 pt-1">
+                <div className="space-y-1 pt-1 min-w-0">
                   <p className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider" style={{ color: "var(--text-muted)" }}>
                     Habilidades de Gestión Directiva & Operaciones:
                   </p>
@@ -796,9 +803,9 @@ const HomePage = () => {
             </section>
 
             {/* 06. Educación & Certificaciones */}
-            <section id="educacion" className="grid gap-4 sm:grid-cols-2 scroll-mt-16">
+            <section id="educacion" className="grid gap-4 sm:grid-cols-2 scroll-mt-16 min-w-0">
               {/* Educación */}
-              <div className="space-y-2">
+              <div className="space-y-2 min-w-0">
                 <h2
                   className="text-xs sm:text-sm font-bold tracking-wider uppercase pb-1.5 border-b flex items-center gap-2"
                   style={{ borderColor: "var(--border-section)", color: "var(--text-primary)" }}
@@ -806,11 +813,11 @@ const HomePage = () => {
                   <span className="font-mono text-blue-500">06.</span>
                   <span>Educación Superior</span>
                 </h2>
-                <div className="space-y-2">
+                <div className="space-y-2 min-w-0">
                   {education.map((item) => (
                     <div
                       key={`${item.title}-${item.date}`}
-                      className="rounded-xl p-3 space-y-0.5"
+                      className="rounded-xl p-3 space-y-0.5 min-w-0"
                       style={{
                         backgroundColor: "var(--bg-card)",
                         border: "1px solid var(--border-subtle)",
@@ -831,7 +838,7 @@ const HomePage = () => {
               </div>
 
               {/* Certificaciones */}
-              <div className="space-y-2">
+              <div className="space-y-2 min-w-0">
                 <h2
                   className="text-xs sm:text-sm font-bold tracking-wider uppercase pb-1.5 border-b flex items-center gap-2"
                   style={{ borderColor: "var(--border-section)", color: "var(--text-primary)" }}
@@ -839,11 +846,11 @@ const HomePage = () => {
                   <span className="font-mono text-blue-500">07.</span>
                   <span>Certificaciones Globales</span>
                 </h2>
-                <div className="space-y-2">
+                <div className="space-y-2 min-w-0">
                   {certifications.map((cert) => (
                     <div
                       key={cert.title}
-                      className="rounded-xl p-2.5 space-y-1"
+                      className="rounded-xl p-2.5 space-y-1 min-w-0"
                       style={{
                         backgroundColor: "var(--bg-card)",
                         border: "1px solid var(--border-subtle)",
@@ -853,7 +860,7 @@ const HomePage = () => {
                         {cert.title}
                       </h3>
                       <div className="flex items-center justify-between gap-2 text-[10px]" style={{ color: "var(--text-muted)" }}>
-                        <span>
+                        <span className="truncate">
                           {cert.issuer} &bull; {cert.issued}
                         </span>
                         {cert.certificateUrl && (
@@ -861,7 +868,7 @@ const HomePage = () => {
                             href={cert.certificateUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="font-medium text-blue-500 hover:underline flex items-center gap-0.5"
+                            className="font-medium text-blue-500 hover:underline flex items-center gap-0.5 shrink-0"
                           >
                             <span>Verificar</span>
                             <i className="bx bx-link-external text-xs" />
@@ -875,8 +882,8 @@ const HomePage = () => {
             </section>
 
             {/* 07. Canales de Contacto Directo & Disponibilidad */}
-            <section id="contacto" className="space-y-3 pt-3 border-t scroll-mt-16" style={{ borderColor: "var(--border-section)" }}>
-              <div className="flex flex-wrap items-center justify-between gap-2">
+            <section id="contacto" className="space-y-3 pt-3 border-t scroll-mt-16 min-w-0" style={{ borderColor: "var(--border-section)" }}>
+              <div className="flex flex-wrap items-center justify-between gap-2 min-w-0">
                 <h2
                   className="text-xs sm:text-sm font-bold tracking-wider uppercase flex items-center gap-2"
                   style={{ color: "var(--text-primary)" }}
@@ -889,11 +896,11 @@ const HomePage = () => {
                 </span>
               </div>
 
-              <div className="grid gap-2 sm:grid-cols-3">
+              <div className="grid gap-2 sm:grid-cols-3 min-w-0">
                 {/* Contacto Directo 1: Llamar */}
                 <a
                   href={`tel:${contacts[0].text.replace(/\s+/g, "")}`}
-                  className="flex items-center gap-2.5 rounded-xl p-3 transition-all hover:bg-zinc-500/10 cursor-pointer"
+                  className="flex items-center gap-2.5 rounded-xl p-3 min-w-0 transition-all hover:bg-zinc-500/10 cursor-pointer"
                   style={{
                     backgroundColor: "var(--bg-card)",
                     border: "1px solid var(--border-subtle)",
@@ -911,7 +918,7 @@ const HomePage = () => {
                 {/* Contacto Directo 2: Email */}
                 <a
                   href={`mailto:${contacts[1].text}`}
-                  className="flex items-center gap-2.5 rounded-xl p-3 transition-all hover:bg-zinc-500/10 cursor-pointer"
+                  className="flex items-center gap-2.5 rounded-xl p-3 min-w-0 transition-all hover:bg-zinc-500/10 cursor-pointer"
                   style={{
                     backgroundColor: "var(--bg-card)",
                     border: "1px solid var(--border-subtle)",
@@ -931,7 +938,7 @@ const HomePage = () => {
                   href={socialLinks[0].href}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2.5 rounded-xl p-3 transition-all hover:bg-zinc-500/10 cursor-pointer"
+                  className="flex items-center gap-2.5 rounded-xl p-3 min-w-0 transition-all hover:bg-zinc-500/10 cursor-pointer"
                   style={{
                     backgroundColor: "var(--bg-card)",
                     border: "1px solid var(--border-subtle)",
@@ -1035,4 +1042,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
